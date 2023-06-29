@@ -1,8 +1,9 @@
 package p03;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+
+// 쪽지시험 로또에서 3문제
 
 public class Lotto3 {
 
