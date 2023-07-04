@@ -58,22 +58,21 @@ public class HumanExec {
 		}
 
 		int avg = sum/humans.length;
-		System.out.println("나이 평균: " + avg);	
-		String names = "";
+		System.out.println("나이 평균: " + avg);
 		
 		// Math.abs() 절대값을 이용해 문제 풀어보기
 		int findAge = Math.abs(humans[0].age - avg); // 가장 가까운 나이 차이 초기화
-		String names1 = "";
+		String names = "";
 		
 		for (int i = 0; i < humans.length; i++) {
 			int find = Math.abs(humans[i].age - avg); // 나이와 평균 차이 계산
 			
 			if (find < findAge) {
 				findAge = find; // 더 작은 차이로 바꾸기
-				names1 = humans[i].name; // 이름 초기화
+				names = humans[i].name; // 이름 초기화
 			}
 		}
-		System.out.println("나이 평균과 가장 가까운 사람은 " + names1 + "님 입니다.");
+		System.out.println("나이 평균과 가장 가까운 사람은 " + names + "님 입니다.");
 	}
 
 }
