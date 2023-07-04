@@ -40,11 +40,12 @@ public class NumberBaseball {
 		for (int i = 0; i < bNum.length; i++) {
 			for (int j = 0; j < compNums.length; j++) {
 				if (bNum[i] == compNums[j]) {
-					if (i == j) {
+					if (i == j) { 
 						strike++;
 					} else {
 						ball++;
 					}
+					break;
 				}
 			}
 		}
