@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.mariadb.jdbc.Statement;
+import java.sql.Statement;
 
 import p10.DBCon;
 
@@ -19,7 +19,7 @@ public class BoardInfoRepository {
 		List<Map<String,String>> list = new ArrayList<>();
 		Connection con = DBCon.getCon();
 		try {
-		Statement stmt = (Statement) con.createStatement();
+		Statement stmt = con.createStatement();
 		String sql = "SELECT * FROM BOARD_INFO";
 		ResultSet rs = stmt.executeQuery(sql);
 		while(rs.next()) {
@@ -42,7 +42,7 @@ public class BoardInfoRepository {
 		Connection con = DBCon.getCon();
 		
 		try {
-			Statement stmt = (Statement) con.createStatement();
+			Statement stmt = con.createStatement();
 			String sql = "UPDATE BOARD_INFO SET ";
 			if (boardInfo.get("biTitle") != null) {
 				sql += " BI_TITLE='" + boardInfo.get("biTitle") + "',";
@@ -81,7 +81,7 @@ public class BoardInfoRepository {
 	public int insertBoardInfo(Map<String,String> boardInfo) {
 		Connection con = DBCon.getCon();
 		try {
-			Statement stmt = (Statement) con.createStatement();
+			Statement stmt = con.createStatement();
 			String sql = "INSERT INTO BOARD_INFO(BI_TITLE, BI_CONTENT, BI_WRITER, BI_CREDAT, BI_CNT)";
 			sql += "values('" + boardInfo.get("biTitle") + "','" + boardInfo.get("biContent") + "',";
 			sql += " '" + boardInfo.get("biWriter") + "' " + boardInfo.get("biWriter") + "')";

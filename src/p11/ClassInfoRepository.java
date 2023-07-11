@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.mariadb.jdbc.Statement;
+import java.sql.Statement;
 
 import p10.DBCon;
 
@@ -18,7 +17,7 @@ public class ClassInfoRepository {
 		List<Map<String, String>> classInfoList = new ArrayList<>();
 		Connection con = DBCon.getCon();
 	try {
-		Statement stmt = (Statement) con.createStatement();
+		Statement stmt = con.createStatement();
 		String sql = "SELECT * FROM CLASS_INFO";
 		ResultSet rs = stmt.executeQuery(sql);
 		while(rs.next()) {
@@ -37,7 +36,7 @@ public class ClassInfoRepository {
 	public int insertClassInfo(Map<String,String> classInfo) {
 		Connection con = DBCon.getCon();
 		try {
-			Statement stmt = (Statement) con.createStatement();
+			Statement stmt = con.createStatement();
 			String sql = "INSERT INTO CLASS_INFO(CI_NAME, CI_DESC)";
 			sql += " values('" + classInfo.get("ciName") + "'," + classInfo.get("ciDesc") + "',";
 			return stmt.executeUpdate(sql);
@@ -50,7 +49,7 @@ public class ClassInfoRepository {
 	public int deleteClassInfo(Map<String,String> classInfo) {
 		Connection con = DBCon.getCon();
 		try {
-			Statement stmt = (Statement) con.createStatement();
+			Statement stmt = con.createStatement();
 			String sql = "DELETE FROM CLASS_INFO WHERE CI_NUM=" + classInfo.get("ciNum");
 			return stmt.executeUpdate(sql);
 		} catch (SQLException e) {
