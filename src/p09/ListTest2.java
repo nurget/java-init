@@ -10,11 +10,11 @@ public class ListTest2 {
 		List<Integer> numList = new ArrayList<>();
 		/*
 		 * numList의 size가 20이 될때까지
-		 * 랜던값을 1-100까지 추가합니다.
+		 * 랜덤값을 1-100까지 추가합니다.
 		 * 단 중복은 안됩니다.
 		 */
 		Random r = new Random();
-		while(numList.size()<50) {
+		while(numList.size()<20) {
 			int rNum = r.nextInt(100)+1;
 			if(numList.indexOf(rNum)==-1) {
 				numList.add(rNum);
